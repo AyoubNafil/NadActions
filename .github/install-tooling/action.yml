@@ -16,19 +16,14 @@ runs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-
-    - name: Synchronize package.json and package-lock.json
-      if: steps.cache-nodemodules.outputs.cache-hit == 'true'
-      run: |
-        npm install
-      shell: bash
-
+    
     - name: Install Dependencies
-      if: steps.cache-nodemodules.outputs.cache-hit == 'true'
+      if: steps.cache-nodemodules.outputs.cache-hit != 'true'
       run: |
+        npm install  # Synchronize package.json and package-lock.json
         npm ci
       shell: bash
-
+    
     - name: Copy local files only
       if: steps.cache-nodemodules.outputs.cache-hit == 'true'
       run: |

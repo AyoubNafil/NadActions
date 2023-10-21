@@ -18,7 +18,7 @@ runs:
           ${{ runner.os }}-
 
     - name: Synchronize package.json and package-lock.json
-      if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+      if: steps.cache-nodemodules.outputs.cache-hit == 'true'
       run: |
         npm install
       shell: bash

@@ -131,18 +131,18 @@ jobs:
   #         fetch-depth: 0
   #     - uses: wagoid/commitlint-github-action@v5
 
-  prettier-formatting:
-    name: "Format with Prettier"
-    needs: [eslint, lwc-jest, pmd-apex, pmd-sobject, pmd-flow, pmd-misc]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: AyoubNafil/devops-center-actions/.github/install-tooling@main
-      - uses: creyD/prettier_action@v4.3
-        with:
-          prettier_options: --write **/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml} --no-error-on-unmatched-pattern
-          same_commit: True
-          only_changed: True
-          prettier_plugins: "prettier-plugin-apex @prettier/plugin-xml"
+  #prettier-formatting:
+  #  name: "Format with Prettier"
+  #  needs: [eslint, lwc-jest, pmd-apex, pmd-sobject, pmd-flow, pmd-misc]
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v3
+  #      with:
+  #        fetch-depth: 0
+  #    - uses: AyoubNafil/devops-center-actions/.github/install-tooling@main
+  #    - uses: creyD/prettier_action@v4.3
+  #      with:
+  #        prettier_options: --write **/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml} --no-error-on-unmatched-pattern
+  #        same_commit: True
+  #        only_changed: True
+  #        prettier_plugins: "prettier-plugin-apex @prettier/plugin-xml"
